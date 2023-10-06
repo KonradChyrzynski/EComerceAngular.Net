@@ -1,0 +1,10 @@
+<div class="card" style="width: 18rem;" >
+    <img [src]="beer.image_url" alt="...">
+    <div class="card-body">
+    <h5 class="card-title">{{ beer.name }}</h5>
+    <p class="card-text">{{beer.tagline}}</p>
+    <div class="shift-item-wrapper">
+        <p class="card-text">{{beer.price | currency:'USD'}}</p>
+        <app-add-item-to-cart [item]="beer"></app-add-item-to-cart>
+    </div>
+</div>

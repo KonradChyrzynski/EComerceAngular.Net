@@ -1,0 +1,9 @@
+.fa-star{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    &:hover{
+        color:cornflowerblue;
+        transition: 0.35s all;
+    }
+}
