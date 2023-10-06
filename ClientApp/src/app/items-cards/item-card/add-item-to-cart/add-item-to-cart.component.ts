@@ -1,0 +1,23 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { IBeer } from 'src/app/IBeer';
+import { ShoppingCartService } from 'src/app/service/cart.service';
+
+@Component({
+  selector: 'app-add-item-to-cart',
+  templateUrl: './add-item-to-cart.component.html',
+  styleUrls: ['./add-item-to-cart.component.scss']
+})
+export class AddItemToCartComponent {
+  @Input()
+  item!: IBeer;
+
+  private cartService: ShoppingCartService;
+  constructor(cartService: ShoppingCartService) {
+    this.cartService = cartService;
+   }
+
+  async addItemToCart(): Promise<void> {
+    await this.cartService.addItem(this.item)
+  }
+
+}
