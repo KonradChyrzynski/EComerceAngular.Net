@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IBeer } from 'src/app/IBeer';
 import { ShoppingCartService } from 'src/app/service/cart.service';
 
@@ -19,5 +19,4 @@ export class AddItemToCartComponent {
   async addItemToCart(): Promise<void> {
     await this.cartService.addItem(this.item)
   }
-
 }

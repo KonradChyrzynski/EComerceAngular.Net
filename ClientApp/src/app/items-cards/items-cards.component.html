@@ -2,7 +2,6 @@
   <section *ngFor="let beer of items; let i = index">
     <div class="card-container" *ngIf="i < 6">
         <app-item-card [beer]="beer"></app-item-card>
-        <app-add-item-to-favorite [beer]="beer"></app-add-item-to-favorite>
     </div>
   </section>
 </main>
