@@ -9,7 +9,7 @@
             <app-add-item-to-cart [item]="item"></app-add-item-to-cart>
         </ng-template>
         <ng-template #inCart>
-            <app-remove-item-from-cart></app-remove-item-from-cart>
+            <app-remove-item-from-cart [item]="item" ></app-remove-item-from-cart>
         </ng-template>
     </div>
     <app-add-item-to-favorite [item]="item"></app-add-item-to-favorite>
