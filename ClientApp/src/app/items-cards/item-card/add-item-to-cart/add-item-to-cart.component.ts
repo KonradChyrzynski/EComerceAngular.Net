@@ -17,6 +17,7 @@ export class AddItemToCartComponent {
    }
 
   async addItemToCart(): Promise<void> {
+    this.item.in_cart = true;
     await this.cartService.addItem(this.item)
   }
 }

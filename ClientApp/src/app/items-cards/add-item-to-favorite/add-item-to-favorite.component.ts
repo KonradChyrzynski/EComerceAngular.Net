@@ -10,13 +10,12 @@ import { FavoriteItemsService } from 'src/app/service/favorite-items.service';
 export class AddItemToFavoriteComponent {
 
   @Input()
-  beer!: IBeer;
+  item!: IBeer;
 
   constructor(private favoriteItemsService: FavoriteItemsService) {}
 
 
   addToFavorite(){
-    this.favoriteItemsService.addToFavorite(this.beer)
+    this.favoriteItemsService.addToFavorite(this.item)
   }
-
 }

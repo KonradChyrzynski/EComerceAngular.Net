@@ -22,5 +22,6 @@ export class FavoriteItemsService
             resolve(Array.from(this.beers))
         )
     }
+
 }
 

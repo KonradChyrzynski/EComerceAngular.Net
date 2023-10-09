@@ -4,4 +4,6 @@ export interface IBeer{
     tagline:string;
     image_url: string;
     price?: number;
+    favourite?: boolean;
+    in_cart?: boolean;
 }

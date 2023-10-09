@@ -22,13 +22,14 @@ import { AddItemToCartComponent } from './items-cards/item-card/add-item-to-cart
 import { MainItemsLayoutComponent } from './main-items-layout/main-items-layout.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CommonModule } from '@angular/common';
+import { RemoveItemFromCartComponent } from './items-cards/item-card/remove-item-from-cart/remove-item-from-cart.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ItemsCardsComponent,
     PageSwapperComponent,
     FavoriteItemsComponent,
     SignInComponent,
@@ -37,17 +38,19 @@ import { AppRoutingModule } from './app-routing.module';
     SendEmailComponent,
     ShoppingCartComponent,
     AddItemToFavoriteComponent,
-    ItemCardComponent,
     AddItemToCartComponent,
     MainItemsLayoutComponent,
-
+    ItemsCardsComponent,
+    ItemCardComponent,
+    RemoveItemFromCartComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
   ],
   providers: [
     CookieService,
