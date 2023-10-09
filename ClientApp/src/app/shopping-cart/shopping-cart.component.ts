@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ShoppingCartService } from '../service/cart.service';
 import { IBeer } from '../IBeer';
+import { BeerService } from '../service/beer.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -8,13 +8,23 @@ import { IBeer } from '../IBeer';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
-  private shoppingCartService: ShoppingCartService;
+  private shoppingCartService: BeerService;
   public items: IBeer[] = [];
-  constructor(shoppingCartService: ShoppingCartService) { 
+  public totalPrice: number = 0;
+  constructor(shoppingCartService: BeerService) { 
     this.shoppingCartService = shoppingCartService
   }
 
   async ngOnInit(): Promise<void> {
-    this.items = await this.shoppingCartService.getItems();
+    this.items = await this.shoppingCartService.getBeersFromApi()
+      for(let i = 0; i < this.items.length; i++){
+        this.items[i].in_cart = true;
+
+        if(this.items[i].price !== undefined){
+            this.totalPrice += this.items[i].price as number;
+        }
+      }
+
+      console.log(this.totalPrice);
    }
 }

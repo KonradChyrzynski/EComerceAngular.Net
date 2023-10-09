@@ -1,11 +1,16 @@
 <div class="card" style="width: 18rem;" >
-    <img [src]="beer.image_url" alt="...">
+   <img [src]="item.image_url" [ngClass]="getImagePosition()" alt="...">
     <div class="card-body">
-    <h5 class="card-title">{{ beer.name }}</h5>
-    <p class="card-text">{{beer.tagline}}</p>
+    <h5 class="card-title">{{ item.name }}</h5>
+    <p class="card-text">{{item.tagline}}</p>
     <div class="shift-item-wrapper">
-        <p class="card-text">{{beer.price | currency:'USD'}}</p>
-        <app-add-item-to-cart [item]="beer"></app-add-item-to-cart>
+        <p class="card-text">{{item.price | currency:'USD'}}</p>
+        <ng-template [ngIf]="!item.in_cart" [ngIfElse]="inCart" >
+            <app-add-item-to-cart [item]="item"></app-add-item-to-cart>
+        </ng-template>
+        <ng-template #inCart>
+            <app-remove-item-from-cart></app-remove-item-from-cart>
+        </ng-template>
     </div>
-    <app-add-item-to-favorite [beer]="beer"></app-add-item-to-favorite>
+    <app-add-item-to-favorite [item]="item"></app-add-item-to-favorite>
 </div>
