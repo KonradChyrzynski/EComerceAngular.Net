@@ -1,4 +1,4 @@
-FROM node:16.15.0 as build-env
+FROM node:16.20.0 as build-env
 WORKDIR /app
 COPY ["package.json","package-lock.json","/app/"]
 RUN npm install
