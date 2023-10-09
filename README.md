@@ -1,7 +1,7 @@
 # SPA
 SPA Project for 5 semester. 
 
-How to run it .
+How to run it:
 docker-compose build .
 
 
