@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IBeer } from 'src/app/IBeer';
 
 @Component({
   selector: 'app-remove-item-from-cart',
@@ -6,13 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./remove-item-from-cart.component.scss']
 })
 export class RemoveItemFromCartComponent implements OnInit {
-
+  @Input()
+  item!: IBeer;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   removeItemFromCart(){
-    console.log("OMG")
+    this.item.in_cart = false;
   }
 }
