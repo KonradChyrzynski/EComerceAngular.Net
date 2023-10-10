@@ -5,7 +5,7 @@
     <p class="card-text">{{item.tagline}}</p>
     <div class="shift-item-wrapper">
         <p class="card-text">{{item.price | currency:'USD'}}</p>
-        <ng-template [ngIf]="!item.in_cart" [ngIfElse]="inCart" >
+        <ng-template [ngIf]="!cartRoute()" [ngIfElse]="inCart" >
             <app-add-item-to-cart [item]="item"></app-add-item-to-cart>
         </ng-template>
         <ng-template #inCart>

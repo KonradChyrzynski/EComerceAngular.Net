@@ -32,4 +32,13 @@ export class ItemCardComponent {
 
     return imgClass;
   }
+
+  cartRoute(): boolean {
+    switch(this.route){
+      case '/shopping-cart':
+        return true;
+      default:
+        return false;
+    }
+  }
 }

@@ -16,7 +16,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    this.items = await this.shoppingCartService.getBeersFromApi()
+    this.items = await this.shoppingCartService.getItems();
       for(let i = 0; i < this.items.length; i++){
         this.items[i].in_cart = true;
 

@@ -14,26 +14,38 @@ export class BeerService {
     
     url = 'https://api.punkapi.com/v2/beers';
 
-    async getBeersFromApi(): Promise<IBeer[]> {
+    async getArrayOfItems(): Promise<void> {
         try {
             const response: any = await this.http.get(this.url).toPromise();
             this.beers = response as IBeer[];
 
-            await this.fetchPricesForBeers();
-
-            return this.beers;
+            await this.fulfillMissingFields();
         } catch (error) {
             console.error('Error fetching beers:', error);
             throw error;
         }
     }
 
-    async fetchPricesForBeers(): Promise<void> {
+    async getItems(): Promise<IBeer[]> {
+
+        if(this.beers.length === 0){
+            await this.getArrayOfItems();
+        }
+
+        return this.beers;
+    }
+
+    async fulfillMissingFields(): Promise<void> {
         const pricePromises: Promise<number>[] = [];
 
         for (const bear of this.beers) {
+            bear.in_cart = false;
+            bear.favourite = false;
+
             const pricePromise: Promise<number> = this.fetchPriceById(bear.id)
                 .then(price => bear.price = price);
+
+
             pricePromises.push(pricePromise);
         }
 
@@ -41,6 +53,7 @@ export class BeerService {
     }
 
     async fetchPriceById(id: number): Promise<number> {
+        //simulate db call
         return new Promise<number>((resolve) => {
             setTimeout(() => {
                 const staticPrice = 15.0;
