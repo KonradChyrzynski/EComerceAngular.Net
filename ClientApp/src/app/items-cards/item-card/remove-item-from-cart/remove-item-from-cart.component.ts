@@ -16,5 +16,6 @@ export class RemoveItemFromCartComponent implements OnInit {
 
   removeItemFromCart(){
     this.item.in_cart = false;
+    document.getElementById(`app-item-${this.item.id}`)?.remove();
   }
 }

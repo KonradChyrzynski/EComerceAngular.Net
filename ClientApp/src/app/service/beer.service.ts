@@ -10,35 +10,35 @@ import { IBeer } from '../IBeer';
 export class BeerService {
     constructor(private http: HttpClient) { }
 
-    beers: IBeer[] = []
+    items: IBeer[] = []
     
     url = 'https://api.punkapi.com/v2/beers';
 
     async getArrayOfItems(): Promise<void> {
         try {
             const response: any = await this.http.get(this.url).toPromise();
-            this.beers = response as IBeer[];
+            this.items = response as IBeer[];
 
             await this.fulfillMissingFields();
         } catch (error) {
-            console.error('Error fetching beers:', error);
+            console.error('Error fetching items:', error);
             throw error;
         }
     }
 
     async getItems(): Promise<IBeer[]> {
 
-        if(this.beers.length === 0){
+        if(this.items.length === 0){
             await this.getArrayOfItems();
         }
 
-        return this.beers;
+        return this.items;
     }
 
     async fulfillMissingFields(): Promise<void> {
         const pricePromises: Promise<number>[] = [];
 
-        for (const bear of this.beers) {
+        for (const bear of this.items) {
             bear.in_cart = false;
             bear.favourite = false;
 
@@ -61,4 +61,50 @@ export class BeerService {
             }, 1000); 
         });
     }
+
+    // async markAsFavorite(id: number): Promise<boolean> {
+    //     for(const item of this.items) {
+    //         if(item.id === id){
+    //             item.favourite = true;
+    //             return true;
+    //         }
+    //     }
+
+    //     return false;
+    // }
+
+
+    // async addToCart(id: number): Promise<boolean> {
+    //     for(const item of this.items) {
+    //         if(item.id === id){
+    //             item.in_cart = true;
+    //             return true;
+    //         }
+    //     }
+
+    //     return false;
+    // }
+
+
+    // async getFavoriteItems(): Promise<IBeer[]> {
+    //     const items: IBeer[] = []
+    //     for(const item of this.items) {
+    //         if(item.favourite){
+    //             items.push(item)
+    //         }
+    //     }
+
+    //     return items;
+    // }
+
+    // async getCartItems(): Promise<IBeer[]> {
+    //     const items: IBeer[] = []
+    //     for(const item of this.items) {
+    //         if(item.in_cart){
+    //             items.push(item)
+    //         }
+    //     }
+
+    //     return items;
+    // }
 }
