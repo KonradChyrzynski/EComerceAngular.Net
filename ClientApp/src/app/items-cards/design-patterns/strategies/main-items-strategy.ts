@@ -10,7 +10,7 @@ export class MainItemsStrategy implements IItemsStrategy {
         let items: IBeer[] = [];
       
         // Simulate synchronous behavior by blocking until the promise is resolved
-        await this._beer.getBeersFromApi()
+        await this._beer.getItems()
           .then((itemsResponse: IBeer[]) => {
             items = itemsResponse.slice(this.paginationService.beersIndexStart, this.paginationService.beersIndexEnd);
           })

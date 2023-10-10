@@ -1,1 +1,16 @@
 https://github.com/dockersamples/avatars
+
+Create a Observable on Favorite Items
+Create a Observable on Shopping Cart
+What if I have Favorite Items in shopping Cart?
+Well that does not matter because it is different observable?
+Ok but how to solve this problem?
+It will require single source of truth.
+Lets say that I have database
+When the item is added to shopping cart it will update the database, and after or during update the request will be send to the shopping cart Observable
+Ok but what about the button add-remove item from cart? It will be added only to the shopping cart Component, so at this point its not the biggest issue.
+Do I need to know which item is added to shopping list inside the favorite component? Not really, Allegro does not have that, also amazon does not have that
+Adding new item often just factor the number of items in the shopping cart so there is no need to view it at this point
+if ill assume that I want to know this, i can get the data from db, instead of using favorite-items observable, and also update it
+
+{user:id, rest of the items}
