@@ -16,6 +16,7 @@ export class ItemCardComponent {
 
   constructor(router: Router) {
     this.route = router.url
+    console.log(this.item)
   }
 
   getImagePosition(): string{

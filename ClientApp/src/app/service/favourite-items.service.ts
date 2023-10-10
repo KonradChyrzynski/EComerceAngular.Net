@@ -4,24 +4,31 @@ import { IBeer } from "../IBeer";
 @Injectable({
   providedIn: 'root'
 })
-export class FavoriteItemsService 
+export class FavouriteItemsService 
 {
     beers: Set<IBeer> = new Set(
     );
 
     constructor(){}
 
-    addToFavorite(beer: IBeer): void
+    addToFavourite(beer: IBeer): void
     {
         this.beers.add(beer)
     }
 
-    getFavorites(): Promise<IBeer[]>
+    removeFromFavourite(id: number) {
+        this.beers.forEach(element => {
+            if(element.id === id){
+                this.beers.delete(element)
+            }
+        });
+    }
+
+    getFavouriteItems(): Promise<IBeer[]>
     {
         return new Promise<IBeer[]>((resolve) => 
             resolve(Array.from(this.beers))
         )
     }
-
 }
 

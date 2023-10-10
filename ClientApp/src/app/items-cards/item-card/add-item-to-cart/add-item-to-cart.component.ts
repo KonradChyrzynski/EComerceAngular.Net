@@ -14,6 +14,7 @@ export class AddItemToCartComponent {
   private cartService: ShoppingCartService;
   constructor(cartService: ShoppingCartService) {
     this.cartService = cartService;
+    console.log(this.item)
    }
 
   async addItemToCart(): Promise<void> {
