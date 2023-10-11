@@ -6,4 +6,5 @@ export interface IBeer{
     price?: number;
     favourite?: boolean;
     in_cart?: boolean;
+    in_cart_amount?: number;
 }
