@@ -24,7 +24,5 @@ export class ShoppingCartComponent implements OnInit {
             this.totalPrice += this.items[i].price as number;
         }
       }
-
-      console.log(this.totalPrice);
    }
 }

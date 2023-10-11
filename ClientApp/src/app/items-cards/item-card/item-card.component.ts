@@ -42,4 +42,15 @@ export class ItemCardComponent {
         return false;
     }
   }
+
+  calculateItemPrice(): number {
+
+    if(this.item.in_cart_amount !== 0 && this.cartRoute())
+    {
+      const ammount = this.item.in_cart_amount as number;
+      return this.item.price as number *  ammount;
+    }
+
+    return this.item.price as number;
+  }
 }

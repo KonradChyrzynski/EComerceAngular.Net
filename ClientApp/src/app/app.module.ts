@@ -25,6 +25,7 @@ import { RemoveItemFromCartComponent } from './items-cards/item-card/remove-item
 import { FavouriteItemsComponent } from './favourite-items/favourite-items.component';
 import { FavouriteItemsService } from './service/favourite-items.service';
 import { AddItemToFavouriteComponent } from './items-cards/add-item-to-favourite/add-item-to-favourite.component';
+import { ItemCounterComponent } from './items-cards/item-card/item-counter/item-counter.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { AddItemToFavouriteComponent } from './items-cards/add-item-to-favourite
     ItemCardComponent,
     RemoveItemFromCartComponent,
     AddItemToFavouriteComponent,
-    AddItemToCartComponent
+    AddItemToCartComponent,
+    ItemCounterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

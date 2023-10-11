@@ -40,11 +40,11 @@ export class BeerService {
 
         for (const bear of this.items) {
             bear.in_cart = false;
+            bear.in_cart_amount = 0;
             bear.favourite = false;
 
             const pricePromise: Promise<number> = this.fetchPriceById(bear.id)
                 .then(price => bear.price = price);
-
 
             pricePromises.push(pricePromise);
         }
@@ -62,7 +62,7 @@ export class BeerService {
         });
     }
 
-    // async markAsFavorite(id: number): Promise<boolean> {
+    // async markAsFavourite(id: number): Promise<boolean> {
     //     for(const item of this.items) {
     //         if(item.id === id){
     //             item.favourite = true;
@@ -86,7 +86,7 @@ export class BeerService {
     // }
 
 
-    // async getFavoriteItems(): Promise<IBeer[]> {
+    // async getFavouriteItems(): Promise<IBeer[]> {
     //     const items: IBeer[] = []
     //     for(const item of this.items) {
     //         if(item.favourite){
