@@ -6,27 +6,34 @@ import { IBeer } from '../IBeer';
   })
 export class ShoppingCartService{
     
-    Items: Set<IBeer> = new Set<IBeer>(); 
+    items: Set<IBeer> = new Set<IBeer>(); 
+    public totalPrice: number = 0;
 
-    constructor() {}
+    constructor() {
+        
+    }
 
     async addItem(item: IBeer): Promise<void>
     {
-        this.Items.add(item);
+        this.items.add(item);
+        this.totalPrice += item.price as number;
     }
 
     async removeItem(itemId: number): Promise<void>
     {
-        for(let item of this.Items){
-
+        for(let item of this.items){
             if(item.id === itemId){
-                this.Items.delete(item);
+                this.items.delete(item);
+                const ammount: number = item.in_cart_amount as number;
+                this.totalPrice -= item.price as number * ammount;
                 break;
             }
         }
     }
 
     async getItems(): Promise<IBeer[]>{
-        return Array.from(this.Items);
+        return new Promise<IBeer[]>((resolve) =>resolve(
+            Array.from(this.items)
+            ));
     }
 }

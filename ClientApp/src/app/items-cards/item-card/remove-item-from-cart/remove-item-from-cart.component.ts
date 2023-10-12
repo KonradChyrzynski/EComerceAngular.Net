@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IBeer } from 'src/app/IBeer';
+import { ShoppingCartService } from 'src/app/service/cart.service';
 
 @Component({
   selector: 'app-remove-item-from-cart',
@@ -9,12 +10,14 @@ import { IBeer } from 'src/app/IBeer';
 export class RemoveItemFromCartComponent implements OnInit {
   @Input()
   item!: IBeer;
-  constructor() { }
+  constructor(private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit(): void {
+
   }
 
   removeItemFromCart(){
+    this.shoppingCartService.removeItem(this.item.id)
     this.item.in_cart = false;
     this.item.in_cart_amount = 0;
     document.getElementById(`app-item-${this.item.id}`)?.remove();

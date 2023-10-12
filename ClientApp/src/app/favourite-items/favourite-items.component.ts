@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { FavouriteItemsService } from '../service/favourite-items.service';
 import { IBeer } from '../IBeer';
 import { IItemsStrategy } from '../items-cards/design-patterns/strategies/interfaces/IItemsStrategy';

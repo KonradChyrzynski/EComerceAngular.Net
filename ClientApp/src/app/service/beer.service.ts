@@ -10,7 +10,7 @@ import { IBeer } from '../IBeer';
 export class BeerService {
     constructor(private http: HttpClient) { }
 
-    items: IBeer[] = []
+    public items: IBeer[] = []
     
     url = 'https://api.punkapi.com/v2/beers';
 
@@ -61,6 +61,8 @@ export class BeerService {
             }, 1000); 
         });
     }
+
+
 
     // async markAsFavourite(id: number): Promise<boolean> {
     //     for(const item of this.items) {

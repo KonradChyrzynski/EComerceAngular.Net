@@ -20,5 +20,4 @@ export class ItemsCardsComponent implements OnInit {
   async ngOnInit() {
       this.items = await this.ItemsStrategy.getItems();
   }
-  
 }
