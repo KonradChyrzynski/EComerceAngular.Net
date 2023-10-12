@@ -12,9 +12,7 @@ export class AddItemToFavouriteComponent {
 
   @Input()
   item!: IBeer;
-  private route: string = ''
-  constructor(private favouriteItemsService: FavouriteItemsService,router: Router ) {
-    this.route = router.url
+  constructor(private favouriteItemsService: FavouriteItemsService) {
   }
 
   handleStarClick(){
@@ -26,10 +24,6 @@ export class AddItemToFavouriteComponent {
     else{
       this.item.favourite = false;
       this.favouriteItemsService.removeFromFavourite(this.item.id)
-
-      switch(this.route){
-        case '/favourite-items':
-      }
     }
   }
 }
