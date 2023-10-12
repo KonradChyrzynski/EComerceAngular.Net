@@ -13,7 +13,6 @@ export class AddItemToFavouriteComponent {
   @Input()
   item!: IBeer;
   private route: string = ''
-
   constructor(private favouriteItemsService: FavouriteItemsService,router: Router ) {
     this.route = router.url
   }

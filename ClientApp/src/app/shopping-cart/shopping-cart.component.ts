@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IBeer } from '../IBeer';
-import { BeerService } from '../service/beer.service';
+import { ShoppingCartService } from '../service/cart.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -8,21 +8,15 @@ import { BeerService } from '../service/beer.service';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
-  private shoppingCartService: BeerService;
   public items: IBeer[] = [];
-  public totalPrice: number = 0;
-  constructor(shoppingCartService: BeerService) { 
-    this.shoppingCartService = shoppingCartService
+  constructor(private shoppingCartService: ShoppingCartService ) { 
   }
 
   async ngOnInit(): Promise<void> {
     this.items = await this.shoppingCartService.getItems();
-      for(let i = 0; i < this.items.length; i++){
-        this.items[i].in_cart = true;
+   }
 
-        if(this.items[i].price !== undefined){
-            this.totalPrice += this.items[i].price as number;
-        }
-      }
+   calculateTotalPrice(): number{
+      return this.shoppingCartService.totalPrice;
    }
 }

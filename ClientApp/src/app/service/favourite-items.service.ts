@@ -6,28 +6,29 @@ import { IBeer } from "../IBeer";
 })
 export class FavouriteItemsService 
 {
-    beers: Set<IBeer> = new Set(
+    items: Set<IBeer> = new Set(
     );
 
     constructor(){}
 
-    addToFavourite(beer: IBeer): void
+    addToFavourite(item: IBeer): void
     {
-        this.beers.add(beer)
+        this.items.add(item)
     }
 
     removeFromFavourite(id: number) {
-        this.beers.forEach(element => {
-            if(element.id === id){
-                this.beers.delete(element)
+        for(let item of this.items){
+            if(item.id === id){
+                this.items.delete(item);
+                break;
             }
-        });
+        }
     }
 
     getFavouriteItems(): Promise<IBeer[]>
     {
         return new Promise<IBeer[]>((resolve) => 
-            resolve(Array.from(this.beers))
+            resolve(Array.from(this.items))
         )
     }
 }
