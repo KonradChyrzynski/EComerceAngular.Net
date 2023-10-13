@@ -25,6 +25,7 @@ import { AddItemToFavouriteComponent } from './items-cards/add-item-to-favourite
 import { ItemCounterComponent } from './items-cards/item-card/item-counter/item-counter.component';
 import { PaginationComponent } from './items-cards/pagination/pagination.component';
 import { FavouriteItemsComponent } from './favourite-items/favourite-items.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { FavouriteItemsComponent } from './favourite-items/favourite-items.compo
     ReactiveFormsModule,
     AppRoutingModule,
     CommonModule,
+    NgbModule,
   ],
   providers: [
     CookieService,
