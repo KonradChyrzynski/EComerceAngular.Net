@@ -5,7 +5,7 @@ yarn-error.log
 testem.log
 /typings
 ./angular
-ClientApp/.angular/cache/
+ClientApp/.angular
 
 # IDEs and editors
 /.idea
