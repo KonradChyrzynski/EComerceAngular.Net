@@ -28,7 +28,6 @@ export class PaginationComponent {
   }
 
   changeToNextPage(): void {
-    console.log(this.numberOfPages);
     this.changePagination(6,6, 1);
     this.changePaginationEvent.emit()
   }
@@ -49,7 +48,6 @@ export class PaginationComponent {
 
   thirdLiClickHandler(): void {
     this.changePagination(2*6,2*6, 2);
-    this.currentPage += 2;
     this.changePaginationEvent.emit()
   }
 
