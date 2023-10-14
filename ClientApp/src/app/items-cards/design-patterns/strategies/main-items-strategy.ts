@@ -21,4 +21,8 @@ export class MainItemsStrategy implements IItemsStrategy {
       
         return items;
       }
+
+    showPagination(): boolean {
+        return true;
+    }
 }

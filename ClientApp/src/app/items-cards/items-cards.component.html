@@ -4,7 +4,7 @@
         <app-item-card [item]="item"></app-item-card>
     </div>
   </section>
-  <ng-template [ngIf]="true">
-    <app-pagination></app-pagination>
+  <ng-template [ngIf]="showPagination">
+    <app-pagination (changePaginationEvent)="changePage()"></app-pagination>
   </ng-template>
 </main>
