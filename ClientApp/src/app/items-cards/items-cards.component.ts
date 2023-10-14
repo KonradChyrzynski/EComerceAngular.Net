@@ -21,4 +21,9 @@ export class ItemsCardsComponent implements OnInit {
       this.items = await this.ItemsStrategy.getItems();
       this.showPagination = this.ItemsStrategy.showPagination();
       }
+  
+  async changePage(){
+    console.log("test")
+    this.items = await this.ItemsStrategy.getItems();
+  }
 }

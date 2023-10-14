@@ -5,6 +5,6 @@
     </div>
   </section>
   <ng-template [ngIf]="showPagination">
-    <app-pagination></app-pagination>
+    <app-pagination (changePaginationEvent)="changePage()"></app-pagination>
   </ng-template>
 </main>

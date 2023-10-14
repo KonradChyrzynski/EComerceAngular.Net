@@ -36,4 +36,5 @@ export class ShoppingCartService{
             Array.from(this.items)
             ));
     }
+
 }
