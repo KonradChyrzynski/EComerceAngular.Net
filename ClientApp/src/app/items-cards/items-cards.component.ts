@@ -10,7 +10,7 @@ import { IItemsStrategy } from './design-patterns/strategies/interfaces/IItemsSt
 export class ItemsCardsComponent implements OnInit {
   @Input()
   ItemsStrategy!: IItemsStrategy;
-
+  showPagination!: boolean; 
   items: IBeer[] = [];
 
   constructor(
@@ -19,5 +19,6 @@ export class ItemsCardsComponent implements OnInit {
 
   async ngOnInit() {
       this.items = await this.ItemsStrategy.getItems();
-  }
+      this.showPagination = this.ItemsStrategy.showPagination();
+      }
 }

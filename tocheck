@@ -14,3 +14,24 @@ Adding new item often just factor the number of items in the shopping cart so th
 if ill assume that I want to know this, i can get the data from db, instead of using favorite-items observable, and also update it
 
 {user:id, rest of the items}
+
+
+
+16.	Co oznacza pojęcie architektura komputera ? Podać zasady działania podzespołów bazowych komputera.
+
+SRAM - 
+    Cache Memory,
+    działa bardzo szybko,
+    Jest kosztowne, Denisty: Low
+
+DRAM (Dynamic RAM) - 
+    Main Memory,
+    Działa szybko w porównaniu do np dysku twardego,
+    stosunkowo tanie w porównaniu do SRAM,
+    Denisty: High
+
+    Tranzystor i jeden kondensator
+
+    Tranzystor – trójelektrodowy (rzadko czteroelektrodowy) półprzewodnikowy element elektroniczny, mający zdolność wzmacniania sygnału elektrycznego. Nazwa urządzenia wywodzi się od słów transkonduktancja (transconductance) z „półprzewodnikowym” przyrostkiem -stor jak w warystor (varistor)[1].
+
+    Kondensator – element elektroniczny bierny zbudowany z dwóch przewodników – inaczej okładek lub elektrod – rozdzielonych dielektrykiem[1]; przechowuje on energię w postaci pola elektrycznego. 

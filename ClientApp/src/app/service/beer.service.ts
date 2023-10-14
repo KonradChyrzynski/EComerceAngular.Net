@@ -8,6 +8,7 @@ import { IBeer } from '../IBeer';
     }
 )
 export class BeerService {
+    length: any;
     constructor(private http: HttpClient) { }
 
     public items: IBeer[] = []

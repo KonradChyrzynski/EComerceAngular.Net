@@ -6,10 +6,15 @@ export class FavouriteItemsStrategy implements IItemsStrategy {
 
     constructor(private favItemsService: FavouriteItemsService )
     {
+
     }
 
     async getItems(): Promise<IBeer[]>
     {
          return this.favItemsService.getFavouriteItems();
+    }
+
+    showPagination(): boolean{
+        return false;
     }
 }
