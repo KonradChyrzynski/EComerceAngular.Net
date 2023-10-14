@@ -8,4 +8,5 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
 export class NavbarComponent {
 
   isNavbarCollapsed = true;
+
 }
