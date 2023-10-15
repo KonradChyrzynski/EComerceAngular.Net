@@ -3,6 +3,7 @@ import { FavouriteItemsService } from '../service/favourite-items.service';
 import { IBeer } from '../IBeer';
 import { IItemsStrategy } from '../items-cards/design-patterns/strategies/interfaces/IItemsStrategy';
 import { FavouriteItemsStrategy } from '../items-cards/design-patterns/strategies/favourite-items-strategy';
+import { PaginationService } from '../service/pagination.sevice';
 
 @Component({
   selector: 'favourite-items',
@@ -14,7 +15,10 @@ export class FavouriteItemsComponent  {
 
   ItemsStrategy!: IItemsStrategy;
 
-  constructor(favouriteItemsService: FavouriteItemsService) {
-    this.ItemsStrategy = new FavouriteItemsStrategy(favouriteItemsService);
+  constructor(
+    favouriteItemsService: FavouriteItemsService, 
+    paginationService: PaginationService
+    ) {
+    this.ItemsStrategy = new FavouriteItemsStrategy(favouriteItemsService, paginationService);
   }
 }
