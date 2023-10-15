@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PaginationService } from '../service/pagination.sevice';
-import { HttpClient } from '@angular/common/http';
 import { MainItemsStrategy } from '../items-cards/design-patterns/strategies/main-items-strategy';
 import { BeerService } from '../service/beer.service';
 import { IItemsStrategy } from '../items-cards/design-patterns/strategies/interfaces/IItemsStrategy';
@@ -10,17 +9,14 @@ import { IItemsStrategy } from '../items-cards/design-patterns/strategies/interf
   templateUrl: './main-items-layout.component.html',
   styleUrls: ['./main-items-layout.component.scss']
 })
-export class MainItemsLayoutComponent implements OnInit {
+export class MainItemsLayoutComponent {
 
   ItemsStrategy!: IItemsStrategy; 
 
   constructor(
         paginationService: PaginationService,
-        bearService: BeerService ,) {
-    this.ItemsStrategy = new MainItemsStrategy(bearService,paginationService);
+        bearService: BeerService 
+        ) {
+      this.ItemsStrategy = new MainItemsStrategy(bearService,paginationService);
    }
-
-  ngOnInit(): void {
-  }
-
 }

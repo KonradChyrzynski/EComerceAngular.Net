@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { BeerService } from 'src/app/service/beer.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PaginationService } from 'src/app/service/pagination.sevice';
 
 @Component({
@@ -7,24 +6,30 @@ import { PaginationService } from 'src/app/service/pagination.sevice';
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
-export class PaginationComponent {
+export class PaginationComponent implements OnInit {
   @Output() changePaginationEvent = new EventEmitter();
+  @Input()
+  stock!: number; 
 
   public currentPage: number = 1;
 
-  public numberOfPages: number;
+  public numberOfPages!: number;
   public changeFirstLi: boolean = true;
   public changeSecondLi: boolean = true;
   public changeThirdLi: boolean = true;
 
-  constructor(private itemsService: BeerService, private paginationService: PaginationService) {
+  constructor(private paginationService: PaginationService) {
+
+  }
+
+  ngOnInit(): void {
+    console.log(this.stock)
     this.numberOfPages = this.calculateNumberOfPages();
+    this.checkLiDisplay();
   }
 
   calculateNumberOfPages(): number{
-    console.log(this.itemsService.items)
-    const numberOfItems = this.itemsService.items.length;
-    return Math.floor(numberOfItems / 6);
+    return Math.ceil(this.stock / 6);
   }
 
   changeToNextPage(): void {

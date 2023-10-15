@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +6,10 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+
+  constructor(){
+
+  }
 
   isNavbarCollapsed = true;
 

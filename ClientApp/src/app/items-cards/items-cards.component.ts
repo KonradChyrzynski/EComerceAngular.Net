@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IBeer } from '../IBeer';
 import { IItemsStrategy } from './design-patterns/strategies/interfaces/IItemsStrategy';
+import { PaginationService } from '../service/pagination.sevice';
 
 @Component({
   selector: 'app-items-cards',
@@ -8,22 +9,30 @@ import { IItemsStrategy } from './design-patterns/strategies/interfaces/IItemsSt
   styleUrls: ['./items-cards.component.scss']
 })
 export class ItemsCardsComponent implements OnInit {
+
   @Input()
   ItemsStrategy!: IItemsStrategy;
   showPagination!: boolean; 
   items: IBeer[] = [];
+  stock!: number;
 
-  constructor(
-      ) { 
+  constructor(private paginationService: PaginationService) {
   }
 
   async ngOnInit() {
+      this.resetPaginations()   
       this.items = await this.ItemsStrategy.getItems();
+      this.stock = this.ItemsStrategy.getTotalItems();
       this.showPagination = this.ItemsStrategy.showPagination();
+      console.log('Stock in ItemsCardsComponent:', this.stock);    
       }
   
   async changePage(){
-    console.log("test")
     this.items = await this.ItemsStrategy.getItems();
+  }
+
+  resetPaginations(){
+    this.paginationService.beersIndexStart = 0;
+    this.paginationService.beersIndexEnd = 6;
   }
 }
