@@ -23,7 +23,6 @@ export class PaginationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.stock)
     this.numberOfPages = this.calculateNumberOfPages();
     this.checkLiDisplay();
   }
@@ -76,4 +75,5 @@ export class PaginationComponent implements OnInit {
       this.changeSecondLi = true
     }
   } 
+
 }

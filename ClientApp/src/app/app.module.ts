@@ -11,7 +11,6 @@ import { SignInComponent } from './user-admission/sign-in/sign-in.component';
 import { UserAdmissionComponent } from './user-admission/user-admission.component';
 import { LoginComponent } from './user-admission/login/login.component';
 // Services
-import { SendEmailComponent } from './send-email/send-email.component';
 import { CookieService } from 'ngx-cookie-service';
 import { ItemCardComponent } from './items-cards/item-card/item-card.component';
 import { AddItemToCartComponent } from './items-cards/item-card/add-item-to-cart/add-item-to-cart.component';
@@ -35,7 +34,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SignInComponent,
     UserAdmissionComponent,
     LoginComponent,
-    SendEmailComponent,
     ShoppingCartComponent,
     AddItemToCartComponent,
     MainItemsLayoutComponent,
