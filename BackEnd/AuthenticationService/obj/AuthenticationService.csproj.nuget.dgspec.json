@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Files\\AngularPractice\\AngularForUni\\BackEnd\\AuthenticationService\\AuthenticationService.csproj": {}
+    "F:\\Files\\AngularPractice\\AngularForUni\\SPA\\BackEnd\\AuthenticationService\\AuthenticationService.csproj": {}
   },
   "projects": {
-    "F:\\Files\\AngularPractice\\AngularForUni\\BackEnd\\AuthenticationService\\AuthenticationService.csproj": {
+    "F:\\Files\\AngularPractice\\AngularForUni\\SPA\\BackEnd\\AuthenticationService\\AuthenticationService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Files\\AngularPractice\\AngularForUni\\BackEnd\\AuthenticationService\\AuthenticationService.csproj",
+        "projectUniqueName": "F:\\Files\\AngularPractice\\AngularForUni\\SPA\\BackEnd\\AuthenticationService\\AuthenticationService.csproj",
         "projectName": "AuthenticationService",
-        "projectPath": "F:\\Files\\AngularPractice\\AngularForUni\\BackEnd\\AuthenticationService\\AuthenticationService.csproj",
+        "projectPath": "F:\\Files\\AngularPractice\\AngularForUni\\SPA\\BackEnd\\AuthenticationService\\AuthenticationService.csproj",
         "packagesPath": "C:\\Users\\48796\\.nuget\\packages\\",
-        "outputPath": "F:\\Files\\AngularPractice\\AngularForUni\\BackEnd\\AuthenticationService\\obj\\",
+        "outputPath": "F:\\Files\\AngularPractice\\AngularForUni\\SPA\\BackEnd\\AuthenticationService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -46,9 +46,21 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.12, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
