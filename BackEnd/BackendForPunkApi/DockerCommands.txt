@@ -1,0 +1,2 @@
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Pa$$w0rd2023' -e 'MSSQL_PID=Express' -p 
+11433:1433 -d mcr.microsoft.com/mssql/server:2022-latest

@@ -1,0 +1,59 @@
+name: dockercompose3752048764574312637
+services:
+  backendforpunkapi:
+    build:
+      context: F:\Files\SPA\KonradChyrzynski-Full-Stack-Project-Angular-.NET\Backend
+      dockerfile: BackendForPunkApi/Dockerfile
+    container_name: authentication-service
+    depends_on:
+      sql-db:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DB_HOST: sql-db
+      DB_NAME: EComerceOnContainers
+      DB_SA_PASSWORD: Pa$$w0rd2023
+    image: backendforpunkapi
+    networks:
+      backendforpunkapi: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 80
+      published: "8001"
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\48796\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\48796\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+  sql-db:
+    container_name: authentication-service-db
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Pa$$w0rd2023
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    networks:
+      backendforpunkapi: null
+    ports:
+    - mode: ingress
+      target: 1433
+      published: "8002"
+      protocol: tcp
+networks:
+  backendforpunkapi:
+    name: dockercompose3752048764574312637_backendforpunkapi
